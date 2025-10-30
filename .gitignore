@@ -1,0 +1,19 @@
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Entornos de desarrollo locales
+.idea/
+.vscode/
+
+# Dependencias y entornos de Python (si usaste un entorno virtual)
+.venv/
+venv/
+__pycache__/
+
+# Dependencias de Node (si las usaste)
+node_modules/
+
+# Archivos de copia de seguridad o caché
+*.bak
+*.swp
