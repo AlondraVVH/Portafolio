@@ -287,3 +287,43 @@ body {
     transform: scale(1.1); /* Efecto de zoom */
     border-color: var(--color-dark);
 }
+
+/* Agrega esto al final de tu archivo styles.css */
+
+/* -------------------------------------- */
+/* 10. Animación Barras de Habilidad      */
+/* -------------------------------------- */
+.progress-bar {
+    /* Estado inicial: sin ancho */
+    width: 0%; 
+    /* Transición suave para la animación de 'width' */
+    transition: width 1.2s cubic-bezier(0.25, 0.1, 0.25, 1); 
+}
+
+/* -------------------------------------- */
+/* 11. Estilos de Info de Contacto        */
+/* -------------------------------------- */
+.contact-info-item {
+    display: flex; /* Alinea ícono y texto */
+    align-items: center;
+    margin-bottom: 1.5rem; /* Espacio entre ítems */
+}
+
+.contact-info-item i {
+    font-size: 1.75rem; /* Tamaño del ícono */
+    color: var(--color-primario); /* Color azul */
+    margin-right: 1.5rem; /* Espacio entre ícono y texto */
+    width: 40px; /* Ancho fijo para alineación */
+}
+
+.contact-info-item a,
+.contact-info-item p {
+    text-decoration: none;
+    color: var(--color-dark);
+}
+
+.contact-info-item a:hover {
+    color: var(--color-primario);
+    text-decoration: underline;
+}
+

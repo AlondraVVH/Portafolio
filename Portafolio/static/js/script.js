@@ -122,3 +122,45 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+/* Agrega esto al final de tu archivo script.js */
+
+// ----------------------------------------------------
+// Animación de Barras de Habilidades (Intersection Observer)
+// ----------------------------------------------------
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // Selecciona la sección de habilidades
+    const skillsSection = document.getElementById('skills');
+    
+    // Selecciona todas las barras de progreso
+    const progressBars = document.querySelectorAll('#skills .progress-bar');
+
+    // Configura el observador
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // Si la sección de 'skills' está visible (ha entrado en la pantalla)
+            if (entry.isIntersecting) {
+                console.log("Sección Skills visible, animando barras...");
+                
+                // Recorre cada barra
+                progressBars.forEach(bar => {
+                    // Aplica el ancho guardado en 'data-width'
+                    // Esto dispara la transición de CSS
+                    bar.style.width = bar.dataset.width;
+                });
+                
+                // Una vez animadas, dejamos de observar la sección
+                observer.unobserve(skillsSection);
+            }
+        });
+    }, { 
+        // La animación se dispara cuando al menos el 20% de la sección es visible
+        threshold: 0.2 
+    });
+
+    // Empezamos a observar la sección de 'skills'
+    if (skillsSection) {
+        observer.observe(skillsSection);
+    }
+});
