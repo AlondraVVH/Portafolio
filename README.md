@@ -7,7 +7,7 @@ Este proyecto es mi sitio web personal y profesional, diseñado para integrar mi
 
 ## Autor y Contacto
 * **Autor:** Alondra Pino
-* **GitHub:** [Tu Enlace de Perfil de GitHub]
+* **GitHub:** https://github.com/AlondraVVH
 
 
 ## Tecnologías Utilizadas
@@ -24,4 +24,4 @@ Este proyecto es mi sitio web personal y profesional, diseñado para integrar mi
 
 ## 🔗 Enlace a GitHub Pages
 El sitio está desplegado y accesible públicamente en:
-**[TU ENLACE PÚBLICO DE GITHUB PAGES]**
+**https://github.com/AlondraVVH**
