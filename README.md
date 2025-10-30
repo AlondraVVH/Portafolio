@@ -24,4 +24,4 @@ Este proyecto es mi sitio web personal y profesional, diseñado para integrar mi
 
 ## 🔗 Enlace a GitHub Pages
 El sitio está desplegado y accesible públicamente en:
-**https://github.com/AlondraVVH**
+https://github.com/AlondraVVH/Portafolio/tree/main
