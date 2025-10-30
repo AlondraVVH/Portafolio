@@ -1,84 +1,91 @@
 /* -------------------------------------- */
-/* 1. Variables y Reseteo General         */
+/* 1. Variables y Estilos Generales       */
 /* -------------------------------------- */
 :root {
     --color-primario: #007bff; /* Azul vibrante */
     --color-secundario: #6c757d;
-    --color-dark: #343a40;
+    --color-oscuro: #343a40;
     --color-claro: #f8f9fa;
     --color-fondo-nav-scroll: rgba(255, 255, 255, 0.95); /* Blanco semi-transparente para scroll */
 }
 
 body {
     font-family: 'Arial', sans-serif;
-    color: var(--color-dark);
+    color: var(--color-oscuro);
+    /* Asegura que el 'offset' del scrollspy coincida con la altura de la barra */
+    position: relative; 
+}
+
+/* Estilo general para los títulos de sección (Clase en español) */
+.titulo-seccion {
+    font-weight: bold;
+    color: var(--color-oscuro);
+    margin-bottom: 3rem;
 }
 
 /* -------------------------------------- */
-/* 2. Estilos de Navegación Personalizada (ACTUALIZADO para fondo transparente) */
+/* 2. Barra de Navegación                 */
 /* -------------------------------------- */
 
-#mainNavbar {
+/* ID en español */
+#barraNavegacion {
     background-color: transparent; /* Fondo transparente por defecto */
     box-shadow: none; /* Sin sombra por defecto */
     transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición para el scroll */
 }
 
 /* Estilo para cuando el navbar se "pega" o cuando se scrollea */
-#mainNavbar.scrolled {
+#barraNavegacion.scrolled {
     background-color: var(--color-fondo-nav-scroll); /* Fondo semi-transparente al hacer scroll */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil al hacer scroll */
 }
 
-
-/* 🟢 REQUISITO: Título (Brand) en azul brillante */
-#mainNavbar .navbar-brand {
+#barraNavegacion .navbar-brand {
     color: var(--color-primario) !important; 
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
-/* 🟢 REQUISITO: Links (nav-link) en azul brillante */
-#mainNavbar .navbar-nav .nav-link {
+#barraNavegacion .navbar-nav .nav-link {
     color: var(--color-primario) !important; 
-    font-weight: normal; /* Por defecto no en negrita */
+    font-weight: normal; 
     margin: 0 5px; 
-    transition: color 0.3s ease, transform 0.2s ease, font-weight 0.3s ease; /* Añadida transición para font-weight */
+    transition: color 0.3s ease, transform 0.2s ease, font-weight 0.3s ease;
 }
 
 /* Efecto hover: se oscurece o cambia */
-#mainNavbar .navbar-brand:hover,
-#mainNavbar .navbar-nav .nav-link:hover {
+#barraNavegacion .navbar-brand:hover,
+#barraNavegacion .navbar-nav .nav-link:hover {
     color: #0056b3 !important; /* Un azul más oscuro */
     transform: translateY(-2px);
 }
 
-/* Estado Activo (Scrollspy) - Solo negrita y color primario */
-#mainNavbar .navbar-nav .nav-link.active {
+/* Estado Activo (Scrollspy) */
+#barraNavegacion .navbar-nav .nav-link.active {
     font-weight: bold !important; /* Texto en negrita para indicar sección activa */
-    color: var(--color-primario) !important; /* Mantiene el color primario */
-    background-color: transparent !important; /* Sin fondo */
-    border-radius: 0; /* Sin bordes redondeados */
+    color: var(--color-primario) !important;
+    background-color: transparent !important;
     transform: translateY(0); 
 }
 
-/* Estilos para el icono del toggler de Bootstrap en navbar-dark */
-#mainNavbar .navbar-toggler-icon {
+/* Icono del toggler (hamburguesa) en azul */
+#barraNavegacion .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23007bff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
-#mainNavbar .navbar-toggler {
+#barraNavegacion .navbar-toggler {
     border-color: var(--color-primario) !important;
 }
 
 
 /* -------------------------------------- */
-/* 3. HOME (Video de Fondo)               */
+/* 3. INICIO (Video de Fondo)             */
 /* -------------------------------------- */
-#home {
+#inicio {
     min-height: 100vh;
     overflow: hidden; 
 }
 
+/* Clase en español */
 .video-fondo {
     position: absolute;
     top: 50%;
@@ -89,11 +96,11 @@ body {
     height: auto;
     z-index: 0;
     transform: translate(-50%, -50%);
-    object-fit: cover; /* Asegura que el video cubra toda el área */
+    object-fit: cover;
 }
 
-/* Mantenemos el overlay (ligeramente oscuro) para legibilidad del texto blanco */
-.overlay-home {
+/* Clase en español */
+.superposicion-inicio {
     position: absolute;
     top: 0;
     left: 0;
@@ -103,18 +110,20 @@ body {
     z-index: 1;
 }
 
-.contenido-home {
+/* Clase en español */
+.contenido-inicio {
     z-index: 10; /* Asegura que el texto esté sobre el video y el overlay */
 }
 
-/* Efecto hover con CSS para el botón CTA */
-.custom-btn {
+/* Botón personalizado (CTA) - Clase en español */
+.boton-personalizado {
     background-color: var(--color-primario);
     border-color: var(--color-primario);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-.custom-btn:hover {
+/* Efecto hover de CSS (Item 12 de la pauta) */
+.boton-personalizado:hover {
     transform: scale(1.05); /* Ligeramente más grande */
     box-shadow: 0 0 25px var(--color-primario); /* Sombra elegante */
     background-color: #0056b3;
@@ -122,208 +131,162 @@ body {
 }
 
 /* -------------------------------------- */
-/* 4. Estilos de Secciones y Flexbox      */
+/* 4. Estilos de Secciones (Servicios, etc) */
 /* -------------------------------------- */
 
-.organizaciones-contenedor {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-}
-
-.clientes-contenedor {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-.servicio-card {
+/* Clase en español */
+.tarjeta-servicio {
     border: none;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
 }
 
-.servicio-card:hover {
+.tarjeta-servicio:hover {
     transform: translateY(-5px); /* Pequeño levantamiento */
     box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3);
 }
 
-/* Barras de Skills Personalizadas */
-.progress-bar-js { background-color: #f7df1e; }
-.progress-bar-css { background-color: #264de4; }
-.progress-bar-react { background-color: #61dafb; }
-.progress-bar-git { background-color: #f1502f; }
+/* Barras de Skills Personalizadas (Clases en español) */
+.barra-progreso-ofimatica { background-color: #007bff; }
+.barra-progreso-soporte { background-color: #6c757d; }
+.barra-progreso-web { background-color: #f7df1e; }
+.barra-progreso-redes { background-color: #28a745; }
+
 
 /* -------------------------------------- */
-/* 5. PORTFOLIO (Efecto Hover CSS)        */
+/* 5. PORTAFOLIO                          */
 /* -------------------------------------- */
 
-.proyecto-card {
+/* Clase en español */
+.tarjeta-proyecto {
     border: 1px solid #e0e0e0;
     overflow: hidden;
-    /* 🟢 Transición suave para los efectos de JS (onmouseover) */
+    /* Transición suave para los efectos de JS (onmouseover) */
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* Efecto hover con CSS puro */
-.proyecto-card-css:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25) !important;
-}
-
-.proyecto-card img {
+.tarjeta-proyecto img {
     height: 200px;
     object-fit: cover;
     width: 100%;
-    /* 🟢 Transición suave para el zoom y filtro */
     transition: transform 0.5s ease, filter 0.5s ease;
 }
 
-/* Efecto zoom en la imagen al hacer hover (solo en las de CSS) */
-.proyecto-card-css:hover img {
-    transform: scale(1.1);
+/* Clase en español */
+.icono-github {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Lo hace redondo */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem; /* Tamaño del ícono */
+    border-width: 2px;
+    transition: all 0.3s ease;
 }
 
-/* Botón de Contacto */
-.custom-btn-submit {
-    background-color: var(--color-dark);
-    border-color: var(--color-dark);
+.icono-github:hover {
+    background-color: var(--color-oscuro); /* Fondo negro al pasar el mouse */
+    color: white; /* Ícono blanco al pasar el mouse */
+    transform: scale(1.1); /* Efecto de zoom */
+    border-color: var(--color-oscuro);
+}
+
+
+/* -------------------------------------- */
+/* 6. REFERENCIAS                         */
+/* -------------------------------------- */
+
+/* Clase en español */
+.imagen-referencia {
+    width: 120px !important;
+    height: 120px !important;
+    object-fit: cover;
+    border-radius: 50% !important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* -------------------------------------- */
+/* 7. EXPERIENCIA                         */
+/* -------------------------------------- */
+
+/* Clase en español */
+.experiencia-item {
+    /* Estilos base para el item de experiencia */
+}
+
+/* Clase en español */
+.lista-logros {
+    list-style-type: '✔'; /* Estilo de viñeta personalizado */
+    padding-left: 1.5rem;
+}
+
+.lista-logros li {
+    padding-left: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+
+/* -------------------------------------- */
+/* 8. CONTACTO                            */
+/* -------------------------------------- */
+
+/* Botón de Enviar Formulario - Clase en español */
+.boton-enviar {
+    background-color: var(--color-oscuro);
+    border-color: var(--color-oscuro);
     transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.custom-btn-submit:hover {
+.boton-enviar:hover {
     background-color: var(--color-primario);
     border-color: var(--color-primario);
     transform: scale(1.03);
 }
 
-/* -------------------------------------- */
-/* 6. Video de Presentación (Tu estilo)   */
-/* -------------------------------------- */
-
-.video-presentacion {
-    width: 200px; /* Tamaño del video */
-    height: 200px; /* Tamaño del video */
-    object-fit: cover; /* Asegura que el video cubra el área sin deformarse */
-    border: 5px solid var(--color-primario); /* Borde de color primario */
-    /* Animación opcional al cargar */
-    animation: fadeInScale 1.5s ease-out;
-}
-
-@keyframes fadeInScale {
-    from { opacity: 0; transform: scale(0.5); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-/* Agrega esto al final de tu archivo styles.css */
-
-/* -------------------------------------- */
-/* 7. Estilos de Tarjeta de Referencia    */
-/* -------------------------------------- */
-.referencia-img {
-    width: 120px !important;    /* Usamos !important para asegurar que sobreescriba Bootstrap */
-    height: 120px !important;
-    object-fit: cover;
-    border-radius: 50% !important; /* Esto reemplaza a .rounded-circle */
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-}
-
-/* ELIMINA ESTE BLOQUE COMPLETO DE TU CSS 
-    (Ya no es necesario con el nuevo diseño)
-*/
-
-/* -------------------------------------- */
-/* 8. Estilos de la Sección Descargar CV  */
-/* -------------------------------------- */
-#download-cv {
-    background: var(--color-primario); /* Fondo azul */
-}
-
-/* Botón de descarga con estilo invertido */
-.custom-btn-descarga {
-    color: var(--color-primario); /* Texto azul */
-    background-color: var(--color-claro); /* Fondo blanco */
-    font-weight: bold;
-    border: 2px solid var(--color-claro);
-    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-}
-
-.custom-btn-descarga:hover {
-    transform: scale(1.05);
-    background-color: transparent; /* Se hace transparente */
-    color: var(--color-claro); /* Texto blanco */
-}
-
-/* Agrega esto al final de tu styles.css */
-
-/* -------------------------------------- */
-/* 9. Estilo Botón GitHub Portafolio      */
-/* -------------------------------------- */
-.btn-github-icon {
-    width: 50px;       /* Ancho fijo */
-    height: 50px;      /* Alto fijo */
-    border-radius: 50%; /* Lo hace redondo */
-    
-    /* Centra el ícono */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    
-    font-size: 1.5rem; /* Tamaño del ícono */
-    border-width: 2px; /* Borde más grueso */
-    
-    /* Transición suave */
-    transition: all 0.3s ease;
-}
-
-.btn-github-icon:hover {
-    background-color: var(--color-dark); /* Fondo negro al pasar el mouse */
-    color: white; /* Ícono blanco al pasar el mouse */
-    transform: scale(1.1); /* Efecto de zoom */
-    border-color: var(--color-dark);
-}
-
-/* Agrega esto al final de tu archivo styles.css */
-
-/* -------------------------------------- */
-/* 10. Animación Barras de Habilidad      */
-/* -------------------------------------- */
-.progress-bar {
-    /* Estado inicial: sin ancho */
-    width: 0%; 
-    /* Transición suave para la animación de 'width' */
-    transition: width 1.2s cubic-bezier(0.25, 0.1, 0.25, 1); 
-}
-
-/* -------------------------------------- */
-/* 11. Estilos de Info de Contacto        */
-/* -------------------------------------- */
-.contact-info-item {
+/* Clase en español */
+.info-contacto-item {
     display: flex; /* Alinea ícono y texto */
     align-items: center;
     margin-bottom: 1.5rem; /* Espacio entre ítems */
 }
 
-.contact-info-item i {
+.info-contacto-item i {
     font-size: 1.75rem; /* Tamaño del ícono */
     color: var(--color-primario); /* Color azul */
     margin-right: 1.5rem; /* Espacio entre ícono y texto */
     width: 40px; /* Ancho fijo para alineación */
 }
 
-.contact-info-item a,
-.contact-info-item p {
+.info-contacto-item a,
+.info-contacto-item p {
     text-decoration: none;
-    color: var(--color-dark);
+    color: var(--color-oscuro);
 }
 
-.contact-info-item a:hover {
+.info-contacto-item a:hover {
     color: var(--color-primario);
     text-decoration: underline;
 }
 
+/* Clase en español para el mensaje de error de JS */
+.mensaje-error-email {
+    color: red;
+    font-size: 0.9rem;
+}
+
+
+/* -------------------------------------- */
+/* 9. Animación Barras de Habilidad       */
+/* -------------------------------------- */
+/* La clase 'progress-bar' es de Bootstrap (intraducible) */
+.progress-bar {
+    /* Estado inicial: sin ancho */
+    width: 0%; 
+    /* Transición suave para la animación de 'width' */
+    /* Esta transición se activa por el Intersection Observer en JS */
+    transition: width 1.2s cubic-bezier(0.25, 0.1, 0.25, 1); 
+}
