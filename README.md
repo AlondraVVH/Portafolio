@@ -6,9 +6,9 @@
 Este proyecto es mi sitio web personal y profesional, diseñado para integrar mi Currículum Vitae (CV) y mi Portafolio de proyectos. Su objetivo principal es presentar mis habilidades, experiencia y trabajos realizados de manera moderna, interactiva y responsiva.
 
 ## Autor y Contacto
-* **Autor:** Nombre Apellido
+* **Autor:** Alondra Pino
 * **GitHub:** [Tu Enlace de Perfil de GitHub]
-* **LinkedIn:** [Tu Enlace de LinkedIn]
+
 
 ## Tecnologías Utilizadas
 | Tecnología | Propósito |
