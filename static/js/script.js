@@ -17,7 +17,7 @@ function resaltarTarjeta(elemento) {
     elemento.style.boxShadow = '0 15px 35px rgba(0, 123, 255, 0.6)'; // Sombra intensa
     elemento.style.transform = 'scale(1.03)';
     elemento.style.borderColor = 'var(--color-primario)'; // Usa la variable CSS
-    
+
     // Obtener la imagen y aplicarle un filtro
     const imagen = elemento.querySelector('img');
     if (imagen) {
@@ -49,20 +49,20 @@ function normalizarTarjeta(elemento) {
  */
 function removerEntrada(elementoBoton) {
     // Encontramos el contenedor principal a remover (el ancestro más cercano con la clase)
-    const contenedorPadre = elementoBoton.closest('.item-removible'); 
-    
+    const contenedorPadre = elementoBoton.closest('.item-removible');
+
     if (contenedorPadre) {
         // Opcional: Añadir una confirmación
         // if (confirm('¿Desea ocultar este elemento? (Demo de JS)')) {
-            // Agregamos un efecto de desvanecimiento antes de remover
-            contenedorPadre.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
-            contenedorPadre.style.opacity = '0';
-            contenedorPadre.style.transform = 'scale(0.95)';
-            
-            // Esperamos a que termine la animación para removerlo
-            setTimeout(() => {
-                contenedorPadre.remove(); // Remueve el elemento del DOM
-            }, 300); // 300 milisegundos
+        // Agregamos un efecto de desvanecimiento antes de remover
+        contenedorPadre.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
+        contenedorPadre.style.opacity = '0';
+        contenedorPadre.style.transform = 'scale(0.95)';
+
+        // Esperamos a que termine la animación para removerlo
+        setTimeout(() => {
+            contenedorPadre.remove(); // Remueve el elemento del DOM
+        }, 300); // 300 milisegundos
         // }
     }
 }
@@ -74,7 +74,7 @@ function removerEntrada(elementoBoton) {
 function validarCorreo(elementoInput) {
     const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const mensaje = document.getElementById('mensaje-validacion');
-    
+
     if (regexCorreo.test(elementoInput.value)) {
         elementoInput.classList.add('is-valid');
         elementoInput.classList.remove('is-invalid');
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
  * Esto anima las barras de progreso cuando entran en la pantalla.
  */
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     const skillsSection = document.getElementById('habilidades');
     const progressBars = document.querySelectorAll('#habilidades .progress-bar');
 
@@ -168,21 +168,21 @@ document.addEventListener('DOMContentLoaded', () => {
             // Si la sección de 'habilidades' está visible
             if (entry.isIntersecting) {
                 console.log("Sección Habilidades visible, animando barras...");
-                
+
                 // Recorre cada barra
                 progressBars.forEach(bar => {
                     // Aplica el ancho guardado en 'data-width'
                     // Esto dispara la transición de CSS
                     bar.style.width = bar.dataset.width;
                 });
-                
+
                 // Una vez animadas, dejamos de observar la sección
                 observer.unobserve(skillsSection);
             }
         });
-    }, { 
+    }, {
         // La animación se dispara cuando al menos el 20% de la sección es visible
-        threshold: 0.2 
+        threshold: 0.2
     });
 
     // Empezamos a observar la sección de 'habilidades'
