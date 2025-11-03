@@ -1,4 +1,4 @@
-# 🌟 Mi CV y Portafolio Personal (Nombre Apellido)
+# 🌟 Mi CV y Portafolio Personal (Alondra Pino)
 
 
 
